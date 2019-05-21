@@ -121,26 +121,26 @@ class Teacher(Person):
         print('%s%s正在讲%s.' % (self._name, self._title, course))
 
 
-def main():
-    stu = Student('王大锤', 15, '初三')
-    stu.study('数学')
-    stu.watch_av()
-    t = Teacher('骆昊', 38, '老叫兽')
-    t.teach('Python程序设计')
-    t.watch_av()
+    def main():
+        stu = Student('王大锤', 15, '初三')
+        stu.study('数学')
+        stu.watch_av()
+        t = Teacher('骆昊', 38, '老叫兽')
+        t.teach('Python程序设计')
+        t.watch_av()
 
 
-if __name__ == '__main__':
-    main()
-    
+    if __name__ == '__main__':
+        main()
+
     
   在上面的代码中，我们将Pet类处理成了一个抽象类，所谓抽象类就是不能够创建对象的类，这种类的存在就是专门为了让其他类去继承它。Python从语法层面并没有像Java或C#那样提供对抽象类的支持，但是我们可以通过abc模块的ABCMeta元类和abstractmethod包装器来达到抽象类的效果，如果一个类中存在抽象方法那么这个类就不能够实例化（创建对象）。上面的代码中，Dog和Cat两个子类分别对Pet类中的make_voice抽象方法进行了重写并给出了不同的实现版本，当我们在main函数中调用该方法时，这个方法就表现出了多态行为（同样的方法做了不同的事情）。
   
   
   # Another Interesting Example
   
-  from abc import ABCMeta, abstractmethod
-from random import randint, randrange
+    from abc import ABCMeta, abstractmethod
+    from random import randint, randrange
 
 
 class Fighter(object, metaclass=ABCMeta):
