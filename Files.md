@@ -135,3 +135,75 @@ If append, mode = 'a';
     if __name__ == '__main__':
         main()
         
+        
+        
+### JSON (JavaScript Object Notation)
+    {
+        "name": "骆昊",
+        "age": 38,
+        "qq": 957658,
+        "friends": ["王大锤", "白元芳"],
+        "cars": [
+            {"brand": "BYD", "max_speed": 180},
+            {"brand": "Audi", "max_speed": 280},
+            {"brand": "Benz", "max_speed": 320}
+        ]
+    }
+    
+#### Data type comparison with Python
+JSON|	Python
+|-----|------|
+|object	|dict|
+|array	|list|
+|string|	str|
+|number (int / real)|	int / float|
+|true / false|	True / False|
+|null| None|
+
+#### Important function
+
+Four important functions in JSON module are:
+
+* `dump` - 将Python对象按照JSON格式序列化到**文件**中
+* `dumps` - 将Python对象处理成JSON格式的**字符串**
+* `load`- 将**文件**中的JSON数据反序列化成对象
+* `loads` - 将**字符串**的内容反序列化成Python对象
+
+
+
+一个叫序列化，一个叫反序列化。自由的百科全书维基百科上对这两个概念是这样解释的：“序列化（serialization）在计算机科学的数据处理中，是指将数据结构或对象状态转换为可以存储或传输的形式，这样在需要的时候能够恢复到原先的状态，而且通过序列化的数据重新获取字节时，可以利用这些字节来产生原始对象的副本（拷贝）。与这个过程相反的动作，即从一系列字节中提取数据结构的操作，就是反序列化（deserialization）”。
+
+Code examples:
+
+    import json
+    
+    
+    def main():
+        mydict = {
+            'name': '骆昊',
+            'age': 38,
+            'qq': 957658,
+            'friends': ['王大锤', '白元芳'],
+            'cars': [
+                {'brand': 'BYD', 'max_speed': 180},
+                {'brand': 'Audi', 'max_speed': 280},
+                {'brand': 'Benz', 'max_speed': 320}
+            ]
+        }
+        try:
+            with open('./temp file/data.json', 'w', encoding='utf-8') as fs:
+                json.dump(mydict, fs)
+        except IOError as e:
+            print(e)
+        print('保存数据完成!')
+    
+    
+    if __name__ == '__main__':
+        main()
+        
+        
+
+
+
+
+
